@@ -1,0 +1,37 @@
+p{
+   font-size: 2rem;
+}
+
+#input{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+#eventdate{
+   font-size: 1rem;
+   padding: 2%;
+   width: 50%;
+   height: 100%;
+   text-align: center;
+}
+
+#countdowntimer{
+    margin-top: 2%;
+    background-color: black;
+    color: wheat;
+    width: 50%;
+    height: 10rem;
+    display: none;
+    padding: 2%;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#takedate{
+    margin-top:1%;
+    width: 55%;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: white;
+}
