@@ -1,0 +1,49 @@
+body{
+    width: 100%;
+}
+
+form{
+    width: 50%;
+    height: 20rem;
+    display: flex;
+    flex-flow: column nowrap;
+    
+}
+form label{
+   font-weight: bolder;
+}
+
+form select{
+    height: 8%;
+    margin-bottom: 1rem;
+}
+#submit{
+    height:2rem;
+    width: 10%;
+    color: #fff;
+    background-color: #000;
+}
+form input{
+    height: 20%;
+    margin-bottom: 1rem;
+}
+
+#showForm{
+    margin-top: 3%;
+    display: none;
+    width: fit-content;
+}
+
+#showForm #reviewTable{
+    width: 100%;
+} 
+
+#reviewTable,th,td{
+    text-align: center;
+    border: #000 solid 1px;
+    border-collapse: collapse;
+    width: 25%;
+}
+
+
+

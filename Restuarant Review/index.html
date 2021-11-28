@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restuarant Review</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="formId">
+        <form id="form" method="post">
+            <label for="food">Choose a food:</label>
+            <select id="food" name="food">
+                <option value="burger">Burger</option>
+                <option value="French Fry">French Fry</option>
+                <option value="kacchi">kacchi</option>
+                <option value="Fish Kabab">Fish Kabab</option>
+                <option value="Chicken wings">Chicken wings</option>
+                <option value="pasta">Pasta</option>
+            </select>
+            <label for="restuarant">Restuarant:</label>
+            <select id="restuarant" name="restuarant">
+                <option value="Chillox">Chillox</option>
+                <option value="Take out 2.0">Take out 2.0</option>
+                <option value="Kacchi Vai">Kacchi Vai</option>
+                <option value="Sultans Dine">Sultans Dine</option>
+                <option value="khanas">Khanas</option>
+            </select>
+            <label for="rate">Rate the food:</label>
+            <select id="rate" name="rate">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label for="comment">Comment:</label>
+            <textarea cols="50" rows="5" id="comment" name="comment"></textarea>
+        </form>
+        <button id="submit" value="Submit" onclick="validateForm()">Submit</button>
+    </div>
+
+    <div id="showForm">
+        <table id="reviewTable">
+        <tbody>
+            <tr>
+                <th>Food Name</th>
+                <th>Restuarant Name</th>
+                <th>Rating (out of 5)</th>
+                <th id="com">Comments</th>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <script src="review.js"></script>
+    
+</body>
+</html>
