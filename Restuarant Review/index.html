@@ -10,7 +10,7 @@
 <body>
 
     <div id="formId">
-        <form id="form" method="post">
+        <form id="form" action="index.html" method="get" onsubmit="validateForm()">
             <label for="food">Choose a food:</label>
             <select id="food" name="food">
                 <option value="burger">Burger</option>
@@ -38,8 +38,9 @@
             </select>
             <label for="comment">Comment:</label>
             <textarea cols="50" rows="5" id="comment" name="comment"></textarea>
+            <input id="submit" type="submit" value="Submit">
         </form>
-        <button id="submit" value="Submit" onclick="validateForm()">Submit</button>
+       
     </div>
 
     <div id="showForm">
