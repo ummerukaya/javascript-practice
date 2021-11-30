@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <form id="customerInfoForm" method="get" action="index.html" onsubmit="validateForm()">
+            <table>
+                <tr>
+                    <td><label>First name:</label></td>
+                    <td><input id="fname" placeholder="First name" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label>Last name:</label></td>
+                    <td><input id="lname" placeholder="Last name" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input id="email" placeholder="me@example.com" type="email"></td>
+                    <td id="invalidEmailMsg"></td>
+                </tr>
+                <tr>
+                    <td><label>Phone:</label></td>
+                    <td><input id="phone" placeholder="phone" type="tel"></td>
+                    <td id="invalidPhoneMsg"></td>
+                </tr>
+                <tr>
+                    <td><label>Address:</label></td>
+                    <td><input id="address" placeholder="address" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label>Image:</label></td>
+                    <td><input id="img" type="file"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="list">
+        <!-- <img id="customerimg">  -->
+    </div> 
+
+    <script src="customerInfo.js"></script>
+</body>
+</html>

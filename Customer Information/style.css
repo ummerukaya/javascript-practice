@@ -1,0 +1,13 @@
+#invalidEmailMsg{
+    color: red;
+    font-size: small;
+}
+#invalidPhoneMsg{
+    color: red;
+    font-size: small;
+}
+#list{
+    display: none;
+    border: 1px solid black;
+}
+
