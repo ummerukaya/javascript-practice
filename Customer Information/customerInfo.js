@@ -26,7 +26,6 @@ validateForm = function () {
 
     if (e == true && p == true) {
         storeCustomerInfo(customer);
-        alert('finished');
     }
 }
 
