@@ -1,17 +1,32 @@
-var customerInfoList = ['Photo', 'Fist name', 'Last name', 'Email', 'Phone', 'Address'];
-var customerInfoIds = ['img', 'fname', 'lname', 'email', 'phone', 'address'];
+var customerInfoList = ['Photo','Name', 'Email', 'Phone', 'Address'];
+
+var id = 0, fname, lname, email, phone, address;
+var imageDataBase64 = "";
+
+document.getElementById('img').addEventListener('change',readFile);
 
 validateForm = function () {
 
-    var enteredEmail = document.getElementById('email');
-    var enteredPhone = document.getElementById('phone');
+    var customer = {
+        ImageSrc: "",
+        Name: "",
+        Email: "",
+        Phone: "",
+        Address: ""
+    }
 
-    //readFile();
-    var e = emailaddress(enteredEmail);
-    var p = phonenumber(enteredPhone);
+    fname = document.getElementById('fname');
+    lname = document.getElementById('lname');
+    email = document.getElementById('email');
+    phone = document.getElementById('phone');
+    address = document.getElementById('address');
+
+    var e = emailaddress(email);
+    var p = phonenumber(phone);
 
     if (e == true && p == true) {
-        fetchCustomerInfo();
+        storeCustomerInfo(customer);
+        alert('finished');
     }
 }
 
@@ -38,61 +53,60 @@ var phonenumber = function (enteredPhone) {
         if (enteredPhone.value == "")
             document.getElementById('invalidPhoneMsg').innerHTML = 'Field cannot be empty';
         else
-            document.getElementById('invalidPhoneMsg').innerHTML = 'Field';
+            document.getElementById('invalidPhoneMsg').innerHTML = 'Field should contain valid phone number';
         return false;
     }
 }
 
-var readFile = function (key,imgPath) {
+function readFile() {
+    
+    if (this.files && this.files[0]) {
 
-    var reader = new FileReader();
+        var FR = new FileReader();
 
-    reader.addEventListener("change", function () {
-        localStorage.setItem(key, reader.result);
-    }, false);
+        FR.addEventListener("load", function (e) {
+            imageDataBase64 = e.target.result;
+        });
 
-    if (imgPath) {
-        reader.readAsDataURL(imgPath);
+        FR.readAsDataURL(this.files[0]);
     }
 
 }
 
-var fetchCustomerInfo = function () {
 
+var setCustomerInfo = function (customer) {
+    customer.ImageSrc = imageDataBase64; 
+    customer.Name = fname.value + " " + lname.value;
+    customer.Email = email.value;
+    customer.Phone = phone.value;
+    customer.Address = address.value;
+}
+
+var storeCustomerInfo = function (customer) {
+
+    id++;
     var list = document.getElementById('list');
     list.style.display = 'block';
 
-    for (var i = 0; i < customerInfoIds.length; i++) {
-
-        var key = customerInfoList[i];
-        if (i == 0) {
-            var imgPath = document.querySelector('#img').files[0];
-            readFile(key,imgPath);
-        }
-        else {
-            var value = document.getElementById(customerInfoIds[i]).value;
-            localStorage.setItem(key, value);
-        }
-    }
-
-
-    for (var i = 0; i < customerInfoList.length; i++) {
-
-        if (i == 0) {
+    setCustomerInfo(customer);
+   
+    localStorage.setItem(id, JSON.stringify(customer));
+   
+    for (var key in customer) {
+        
+        if (key == 'ImageSrc' && customer.hasOwnProperty(key)) {
             var data = document.createElement('img');
             data.id = 'customerimg';
-            data.height = '150';
-            data.src = localStorage.getItem('image');
+            data.src = JSON.parse(localStorage.getItem(id))[key];
+            console.log(data.src);
             document.getElementById('list').appendChild(data);
         }
         else {
-            var data = document.createElement('div');
-            document.getElementById('list').appendChild(data);
-            data.innerHTML = customerInfoList[i] + ': ' + localStorage.getItem(customerInfoList[i]);
+            var data1 = document.createElement('div');
+            document.getElementById('list').appendChild(data1);
+            data1.innerHTML = key+ ': ' +JSON.parse(localStorage.getItem(id))[key];
         }
 
-        if (i == customerInfoList.length - 1)
-            data.style.borderBottom = '1px solid black';
     }
 }
 
