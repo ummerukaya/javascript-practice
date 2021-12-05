@@ -8,12 +8,12 @@ function validateForm(){
     }
     else
     {
-        fetchData();
+        storeData();
     }
    
 }
 
-function fetchData(){
+function storeData(){
     document.getElementById('showForm').style.display='block';
 
     var foods= document.getElementById('food').value;
