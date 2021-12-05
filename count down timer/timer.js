@@ -18,6 +18,12 @@ function takeDate(){
         sec = Math.floor(difference/1000);
         let showTime=day+" days | "+hour+" hrs | "+min+" min | "+sec+" sec";
         document.getElementById('countdowntimer').innerHTML = showTime;
+
+        if(difference<0)
+        {
+            clearInterval(interval);
+            document.getElementById('countdowntimer').innerHTML = 'end';
+        }
     },1000);
 }
 
